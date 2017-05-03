@@ -1,10 +1,10 @@
 <?php 
 	if (!empty($_POST['nick']) && !empty($_POST['pwd1']) && !empty($_POST['name']) && !empty($_POST['email'])) {
 		if ($_POST['pwd1'] ===  $_POST['pwd2']) {
+			$pwd = $_POST['pwd1'];
 			$dbh = new PDO('mysql:host=localhost;dbname=dracula', 'root', '');
-			foreach($dbh->query('SELECT * from users') as $row) {
-        var_dump($row);
-    }
+			$dbh->query("INSERT INTO users (`nick`, `name`, `email`, `pwd`) VALUES ('".$_POST['nick']."', ('".$_POST['name']."', ('".$_POST['email']."', ('".$pwd."')");
+
 		}
 		else{
 			echo "PWD1 != PWD2";

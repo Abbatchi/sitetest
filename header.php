@@ -30,10 +30,9 @@
     </div>
     <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
       <ul class="nav navbar-nav">
-        <li class="active"><a href="index.php"><---</a></li>
         <li class="active"><a href="about.php">About me</a></li>
         <li class="active"><a href="video.php">Videos</a></li>
-        <?php if (isset($session) && $session == 1){echo "<li class='active'><a href='logout.php'>logout</a></li>";} else{echo "<li class='active'><a href='log.php'>login</a></li>";} ?>
+        <?php if (isset($_SESSION)){echo "<li class='active'><a href='logout.php'>logout</a></li>";} else{echo "<li class='active'><a href='log.php'>login</a></li>";} ?>
         <li class="active"><a href="reg.php">Sign up</a></li>
       </ul>
       <form class="navbar-form navbar-right" role="search">

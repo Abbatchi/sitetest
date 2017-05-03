@@ -1,5 +1,4 @@
-<?php include 'header.php';?>
-
+<?php require 'header.php';?>
 
 	<img src="img/drac.jpg" class="superbg" />
 
