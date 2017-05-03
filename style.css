@@ -1,0 +1,49 @@
+body{
+	padding-top: 5em;
+}
+
+#logo{
+	margin-top: -1em;
+	width: 6em;
+}
+
+h2{
+	color: red;
+	padding-left: 5em;
+	padding-bottom: 2em;
+	text-shadow:  2px 1px 3px #888888;
+}
+p{
+	font-size: 1.6em;
+}
+
+#text-p{
+	padding-left: 3em;
+	padding-right: 3em;
+}
+
+#text-p img{
+  box-shadow: 5px 3px 5px #888888;
+}
+
+
+
+#floated{
+	float: left;
+	width: 12em;
+	margin: 0 15px 15px 0;
+}
+
+#list li{
+	padding-top: 3em;
+	font-size: 1.2em;
+}
+
+img.superbg {
+    position:fixed;
+    top:0;
+    left:0;
+    z-index:-99;
+}
+
+/* Social buttons */
