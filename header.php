@@ -1,5 +1,7 @@
 <?php 
-
+  if (!isset($_SESSION)) {
+    session_start();
+  }
 
  ?>
 
@@ -32,14 +34,14 @@
       <ul class="nav navbar-nav">
         <li class="active"><a href="about.php">About me</a></li>
         <li class="active"><a href="video.php">Videos</a></li>
-        <?php if (isset($_SESSION)){echo "<li class='active'><a href='logout.php'>logout</a></li>";} else{echo "<li class='active'><a href='log.php'>login</a></li>";} ?>
-        <li class="active"><a href="reg.php">Sign up</a></li>
+        <?php if (isset($_SESSION['auth'])){echo "<li class='active'><a href='logout.php'>logout</a></li>";} else{echo "<li class='active'><a href='log.php'>login</a></li>";} ?>
+        <?php if (isset($_SESSION['auth'])){echo "";} else{echo "<li class='active'><a href='signup.php'>SignUp</a></li>";} ?>
       </ul>
       <form class="navbar-form navbar-right" role="search">
         <div class="form-group">
           <input type="text" class="form-control" placeholder="blablabla?">
         </div>
-        <button type="submit" class="btn btn-default"><?php if (isset($session) && $session == 1){echo $nick;} else {echo "Draculito ";} ?> this!</button>
+        <button type="submit" class="btn btn-default"><?php if (isset($_SESSION['auth'])){echo $_SESSION['auth'];} else {echo "Draculito ";} ?> this!</button>
       </form>
 
     </div>

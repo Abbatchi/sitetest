@@ -6,17 +6,20 @@
 
 				$nick = $_POST['nick'];
 				$dbh = new PDO('mysql:host=localhost;dbname=dracula', 'root', '');
-				foreach($dbh->query("SELECT pwd from users WHERE users.nick = '" . $nick . "'") as $pwd) {
+				$req = $dbh->query("SELECT pwd FROM users WHERE users.nick = '" . $nick . "'");
+
+					$pwd = $req->fetch();
 	        	
-	        		if($pwd['pwd'] === $_POST['pwd']){
-	        			$session = 1;
-	        			$login = 'Logout';
+	        		if($pwd['pwd'] == $_POST['pwd']){
 	        			session_start();
+	        			$_SESSION['auth'] = $nick;
+	        			header('location: index.php');
+
 
 		        	}
 		        	else {
 		        		echo "error";
-		        	}
+		        	
 	    		}
 			}
 

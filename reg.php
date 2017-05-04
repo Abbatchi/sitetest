@@ -3,8 +3,9 @@
 		if ($_POST['pwd1'] ===  $_POST['pwd2']) {
 			$pwd = $_POST['pwd1'];
 			$dbh = new PDO('mysql:host=localhost;dbname=dracula', 'root', '');
-			$dbh->query("INSERT INTO users (`nick`, `name`, `email`, `pwd`) VALUES ('".$_POST['nick']."', ('".$_POST['name']."', ('".$_POST['email']."', ('".$pwd."')");
-
+			$req = $dbh->prepare("INSERT INTO users SET nick = ? , name = ?, email = ?, pwd = ?");
+			$req->execute([$_POST['nick'], $_POST['name'], $_POST['email'], $pwd]);
+			var_dump($_POST);
 		}
 		else{
 			echo "PWD1 != PWD2";

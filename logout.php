@@ -1,4 +1,5 @@
 <?php 
-$session = 0;
+session_start();
+    session_unset($_SESSION["auth"]);
 header('location: index.php');
  ?>
