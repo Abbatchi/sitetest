@@ -1,18 +1,24 @@
 <?php 
 	if (!empty($_POST['nick']) && !empty($_POST['pwd1']) && !empty($_POST['name']) && !empty($_POST['email'])) {
-		if ($_POST['pwd1'] ===  $_POST['pwd2']) {
-			$pwd = $_POST['pwd1'];
-			$dbh = new PDO('mysql:host=localhost;dbname=dracula', 'root', '');
-			$req = $dbh->prepare("INSERT INTO users SET nick = ? , name = ?, email = ?, pwd = ?");
-			$req->execute([$_POST['nick'], $_POST['name'], $_POST['email'], $pwd]);
-			var_dump($_POST);
-		}
+		$dbh = new PDO('mysql:host=localhost;dbname=dracula', 'root', '');
+		if ($dbh->query("SELECT nick FROM users WHERE users.nick = '" . $_POST['nick'] . "'")) {
+			if ($_POST['pwd1'] ===  $_POST['pwd2']) {
+				$pwd = sha1($_POST['pwd1']);
+				$dbh = new PDO('mysql:host=localhost;dbname=dracula', 'root', '');
+				$req = $dbh->prepare("INSERT INTO users SET nick = ? , name = ?, email = ?, pwd = ?");
+				$req->execute([$_POST['nick'], $_POST['name'], $_POST['email'], $pwd]);
+				echo '<p class="text-success">You have registered</p>';
+			}
+			else{
+				echo "PWD1 != PWD2";
+			}
+		}	
 		else{
-			echo "PWD1 != PWD2";
+			echo '<p class="text-warning">Username is exists, change username</p>';
 		}
 	}
 	else{
-		echo "pas OK";
+		echo '<p class="text-warning">Please enter all data in form</p>';
 	}
  ?>
 

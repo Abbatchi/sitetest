@@ -35,7 +35,7 @@
         <li class="active"><a href="about.php">About me</a></li>
         <li class="active"><a href="video.php">Videos</a></li>
         <?php if (isset($_SESSION['auth'])){echo "<li class='active'><a href='logout.php'>logout</a></li>";} else{echo "<li class='active'><a href='log.php'>login</a></li>";} ?>
-        <?php if (isset($_SESSION['auth'])){echo "";} else{echo "<li class='active'><a href='signup.php'>SignUp</a></li>";} ?>
+        <?php if (isset($_SESSION['auth'])){echo "";} else{echo "<li class='active'><a href='reg.php'>SignUp</a></li>";} ?>
       </ul>
       <form class="navbar-form navbar-right" role="search">
         <div class="form-group">

@@ -10,7 +10,7 @@
 
 					$pwd = $req->fetch();
 	        	
-	        		if($pwd['pwd'] == $_POST['pwd']){
+	        		if($pwd['pwd'] === substr(sha1($_POST['pwd']), 0, 30)){
 	        			session_start();
 	        			$_SESSION['auth'] = $nick;
 	        			header('location: index.php');

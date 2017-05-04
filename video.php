@@ -18,7 +18,7 @@ h2{
 }
 </style>
 
-	<div id="myCarousel" class="carousel slide" data-interval="3000" data-ride="carousel">
+	<div id="myCarousel" class="carousel slide" data-ride="carousel">
   <!-- Индикаторы для карусели -->
   <ol class="carousel-indicators">
     <!-- Перейти к 0 слайду карусели с помощью соответствующего индекса data-slide-to="0" -->

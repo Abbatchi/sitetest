@@ -13,9 +13,10 @@
 				  }
 
 				for ($i = 1; $i < 200; $i++) {
-				  echo($i."\t - ".$a[$i].", <br/>\n");
+				  $res = explode( '.', $a[$i]);
+				  echo $i."\t - ". $res[0] ."<br/>\n";
 				  }
-			echo("...\n");
+			
 			}
 
 	?>
